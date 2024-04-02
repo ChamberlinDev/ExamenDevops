@@ -5,7 +5,7 @@ on:
       - Prod
 
 jobs:
-  deploy server ubuntu:
+  deploy2:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
