@@ -39,7 +39,8 @@ jobs:
           echo "Bucket does not exist. Stopping the pipeline."
           exit 1
         fi
-
+      env:
+        AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}  
     - name: Deploy to AWS S3
       if: success() 
       run: |
