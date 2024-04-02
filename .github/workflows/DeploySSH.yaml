@@ -2,10 +2,10 @@ name: Deploy to Ubuntu Server
 on:
   push:
     branches:
-      - prod
+      - Prod
 
 jobs:
-  deploy:
+  deploy server ubuntu:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
