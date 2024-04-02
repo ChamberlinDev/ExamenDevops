@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v4  
 #--> ATTENTION : NE TOUCHEZ PAS A CE STEP
     - name: Insert commit ID into HTML
-       run: |
+      run: |
       sed -i "s/data-commit-id=\".*\"/data-commit-id=\"${{ github.sha }}\"/g" index.html
       # Vérifier que le remplacement a été effectué correctement
        grep -q "data-commit-id=\"${{ github.sha }}\"" contact.html && echo "ID du commit inséré avec succès." || { echo "Erreur : ID du commit non inséré."; exit 1; }
@@ -37,7 +37,6 @@ jobs:
           echo "Bucket does not exist. Stopping the pipeline."
           exit 1
         fi
-
     - name: Deploy to AWS S3
       if: success() 
       run: |
@@ -47,4 +46,3 @@ jobs:
         AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
 
 
-        
