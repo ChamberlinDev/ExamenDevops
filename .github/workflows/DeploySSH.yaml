@@ -1,0 +1,22 @@
+name: Deploy to Ubuntu Server
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4  
+
+    - name: Configure SSH keys
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to Ubuntu Server
+      run: |
+        ls -la
+        
